@@ -129,7 +129,7 @@
     transition:transform .5s var(--ease)}
   .polaroid:active{transform:rotate(-1deg) scale(.99)}
   .polaroid img{display:block;width:100%;aspect-ratio:852/636;object-fit:cover;border-radius:2px;filter:saturate(1.05) contrast(1.02)}
-  .polaroid .cap{position:absolute;left:18px;right:18px;bottom:14px;font-family:var(--serif);font-style:italic;color:#3b3a36;font-size:19px;display:flex;justify-content:space-between}
+  .polaroid .cap{position:absolute;left:18px;right:18px;bottom:14px;font-family:var(--serif);font-style:italic;color:#3b3a36;font-size:20px;text-align:center}
   .hero h1{font-size:clamp(44px,12vw,84px);color:var(--ink)}
   .hero h1 em{font-style:italic;color:var(--teal);padding-bottom:4px;display:inline-block;line-height:1.1}
   .hero p{color:var(--ink-soft);max-width:36ch;margin:0}
@@ -141,27 +141,7 @@
   .letter .paper p:last-child{margin:0}
   .letter .sig{font-style:italic;font-size:1.3em;margin-top:1.4em}
 
-  .notes{padding:20px 0 60px}
-  .notes h2{font-size:clamp(30px,7vw,44px);margin-bottom:8px}
-  .notes .lead{color:var(--ink-soft);margin:0 0 26px;max-width:38ch}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  .note{position:relative;aspect-ratio:1/1;perspective:1000px;border:0;background:none;padding:0;color:inherit;text-align:left}
-  .note .face{position:absolute;inset:0;border-radius:var(--radius);backface-visibility:hidden;transition:transform .7s var(--ease);
-    display:grid;place-items:center;padding:16px;text-align:center}
-  .note .front{background:linear-gradient(160deg,var(--bg-2),#0f1a2e);border:1px solid rgba(47,183,200,.28);
-    font-family:var(--serif);font-size:clamp(40px,10vw,64px);color:var(--teal);font-weight:600}
-  .note .front span{display:block;font-family:var(--sans);font-size:13px;color:var(--ink-soft);font-weight:400;margin-top:2px}
-  .note .back{background:var(--teal);color:#06202a;transform:rotateY(180deg);font-size:clamp(15px,3.6vw,17px);line-height:1.4;font-weight:500}
-  .note.flipped .front{transform:rotateY(180deg)}
-  .note.flipped .back{transform:rotateY(360deg)}
-  .grid .note:nth-child(3){grid-column:span 2;aspect-ratio:2.2/1}
-
-  .ps{padding:10px 0 40px;text-align:center;display:grid;gap:18px;justify-items:center}
-  .ps button{border:1.5px solid var(--teal);background:none;color:var(--ink);padding:14px 26px;border-radius:999px;font-weight:500}
-  .ps button:active{transform:scale(.97)}
-  .ps .secret{display:none;font-family:var(--serif);font-size:clamp(24px,6vw,34px);font-style:italic;color:var(--ink);max-width:22ch;line-height:1.25}
-  .ps.open .secret{display:block}
-  .ps.open button{display:none}
+  .ps{padding:0 0 40px;text-align:center}
   .replay{color:var(--ink-soft);font-size:14px;background:none;border:0;text-decoration:underline;text-underline-offset:4px;padding:8px}
 
   .heart{position:fixed;font-size:22px;pointer-events:none;z-index:55;animation:rise 1.4s ease-out forwards;color:var(--teal)}
@@ -169,7 +149,7 @@
 
   @media (prefers-reduced-motion:reduce){
     .flame{animation:none}
-    .scene,.env .flap,.env .letter,.env .seal,.note .face,.polaroid{transition-duration:.01s}
+    .scene,.env .flap,.env .letter,.env .seal,.polaroid{transition-duration:.01s}
     .heart{animation:none;display:none}
   }
 </style>
@@ -223,10 +203,9 @@
     <header class="hero">
       <figure class="polaroid" id="polaroid" style="margin:0">
         <img src="photo.jpg" alt="Mum kneeling next to Mofe as a small boy in his school uniform, both smiling in a parking lot" width="852" height="636">
-        <figcaption class="cap"><span>First day, years ago</span><span>me &amp; you</span></figcaption>
+        <figcaption class="cap">me and you</figcaption>
       </figure>
       <h1>Happy <em>46th,</em><br>Mum.</h1>
-      <p>I made this instead of buying a card, because a card from a shop wouldn't have room for all of this.</p>
     </header>
 
     <section class="letter" aria-label="Letter">
@@ -241,22 +220,7 @@
       </div>
     </section>
 
-    <section class="notes" aria-label="Things I learned from you">
-      <h2>Six things I got from you</h2>
-      <p class="lead">Tap each one.</p>
-      <div class="grid">
-        <button class="note"><div class="face front">1<span>tap</span></div><div class="face back">You pray before you decide. I'm still learning that one.</div></button>
-        <button class="note"><div class="face front">2<span>tap</span></div><div class="face back">You built your practice from nothing and still made it to my games.</div></button>
-        <button class="note"><div class="face front">3<span>tap</span></div><div class="face back">You forgive fast and you forgive properly. No score kept, no bringing it back up later. I don't know anyone else who does that.</div></button>
-        <button class="note"><div class="face front">4<span>tap</span></div><div class="face back">You treat strangers like family and family like treasure.</div></button>
-        <button class="note"><div class="face front">5<span>tap</span></div><div class="face back">You say "we'll thank God" and then you actually do.</div></button>
-        <button class="note"><div class="face front">6<span>tap</span></div><div class="face back">You never once let me leave the house hungry. Not once.</div></button>
-      </div>
-    </section>
-
-    <section class="ps" id="ps" aria-label="One more thing">
-      <button id="ps-btn">One more thing</button>
-      <p class="secret">46 years, and you still walk into a room like you're 30. Happy birthday, Mum.</p>
+    <section class="ps" aria-label="Replay">
       <button class="replay" id="replay">Play it again</button>
     </section>
   </div>
@@ -372,11 +336,10 @@
       });
       if (alive) requestAnimationFrame(frame); else c.clearRect(0,0,innerWidth,innerHeight);
     })(t0);
+    setTimeout(() => c.clearRect(0,0,innerWidth,innerHeight), 5000);
   }
 
   /* ---- story interactions ---- */
-  document.querySelectorAll('.note').forEach(n => n.addEventListener('click', () => n.classList.toggle('flipped')));
-  $('#ps-btn').addEventListener('click', () => $('#ps').classList.add('open'));
   $('#polaroid').addEventListener('click', e => {
     if (reduce) return;
     for (let i = 0; i < 6; i++) {
